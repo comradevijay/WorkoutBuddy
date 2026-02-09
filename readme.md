@@ -1,4 +1,4 @@
-# 🏋️ Workout Buddy
+# 🏋️ Workout Buddy — Live Demo: [https://workoutbuddymernfs.netlify.app/](https://workoutbuddymernfs.netlify.app/)
 
 **Workout Buddy** is a full-stack **MERN** application designed to help users track their fitness routines. It allows users to log workouts, monitor progress, and securely manage their data through a clean, responsive interface.
 
@@ -72,14 +72,12 @@ cd WorkoutBuddy
 
 ### 2️⃣ Backend Configuration
 
-Navigate to the backend folder:
-
 ```bash
 cd backend
 npm install
 ```
 
-Create a `.env` file in the `backend` folder and add the following:
+Create a `.env` file in the `backend` folder:
 
 ```env
 PORT=4000
@@ -97,16 +95,9 @@ npm run dev
 
 ### 3️⃣ Frontend Configuration
 
-Open a new terminal and navigate to the frontend folder:
-
 ```bash
 cd frontend
 npm install
-```
-
-Start the React application:
-
-```bash
 npm start
 ```
 
@@ -124,4 +115,46 @@ npm start
 
 ---
 
-✅ **Workout Buddy** provides a secure, scalable, and user-friendly platform for fitness tracking using modern full-stack web technologies.
+## 🌐 Deployment
+
+### 🔧 Backend Deployment (Render)
+
+* Backend deployed on **Render**
+* Environment variables configured securely in Render dashboard
+* Provides REST API consumed by the frontend
+
+**Backend Live URL:**
+
+```
+https://your-render-backend-url.onrender.com
+```
+
+---
+
+### 🎨 Frontend Deployment (Netlify)
+
+* Frontend deployed on **Netlify**
+* Connected to live backend deployed on Render
+* API base URL configured via environment variables
+
+```env
+REACT_APP_API_URL=https://your-render-backend-url.onrender.com
+```
+
+**Live Application:**
+
+```
+https://workoutbuddymernfs.netlify.app/
+```
+
+---
+
+## ✅ Status
+
+✔ Backend successfully deployed on **Render**
+✔ Frontend successfully deployed on **Netlify**
+✔ Fully functional end-to-end MERN application
+
+---
+
+🚀 **Workout Buddy** provides a secure, scalable, and user-friendly platform for fitness tracking using modern full-stack web technologies.
