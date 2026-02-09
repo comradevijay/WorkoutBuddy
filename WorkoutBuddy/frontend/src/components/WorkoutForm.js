@@ -18,7 +18,7 @@ const WorkoutForm = () => {
       return 
     }
     const workout = {title, load, reps};
-    const response = await fetch("/api/workouts", {
+    const response = await fetch("https://workoutbuddy-nt3r.onrender.com/api/workouts", {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {

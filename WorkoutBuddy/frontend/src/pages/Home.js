@@ -1,59 +1,70 @@
-// import React, { useEffect, useState } from 'react'
 import React, { useEffect } from 'react'
 
-// componets imported
-import WorkoutsDetails from '../components/WorkoutsDetails';
-import WorkoutForm from '../components/WorkoutForm';
-import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
-import { useAuthContext } from './../hooks/useAuthContext';
+// components
+import WorkoutsDetails from '../components/WorkoutsDetails'
+import WorkoutForm from '../components/WorkoutForm'
+
+// hooks
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+import { useAuthContext } from './../hooks/useAuthContext'
 
 const Home = () => {
 
-  //useState
-  // const [workouts, setWorkout] = useState(null)
+  const { workouts, dispatch } = useWorkoutsContext()
+  const { user } = useAuthContext()
 
-  const {workouts, dispatch} = useWorkoutsContext()
-  const {user} = useAuthContext()
-
-  useEffect(()=>{
-    const fetchWorkouts = async() =>{
-      const response = await fetch('https://workoutbuddy-nt3r.onrender.com/api/workouts/',{
-        headers: {
-          'Authorization' : `Bearer ${user.token}`
-
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      const response = await fetch(
+        'https://workoutbuddy-nt3r.onrender.com/api/workouts/',
+        {
+          headers: {
+            'Authorization': `Bearer ${user.token}`
+          }
         }
-      })
+      )
       const json = await response.json()
 
-      if(response.ok){
-        //useState
-        // setWorkout(json)
-
-        dispatch({type: 'SET_WORKOUTS', payload: json})
+      if (response.ok) {
+        dispatch({ type: 'SET_WORKOUTS', payload: json })
       }
     }
-    if(user){
+
+    if (user) {
       fetchWorkouts()
     }
   }, [dispatch, user])
 
-  // key={workout._id}
   return (
-    <div className='home'>
-        <div className="workouts">
-          {
-            workouts && workouts.map((workout)=>(
-              // <p key={workout._id}>{workout.title}</p>
-            <WorkoutsDetails key={workout._id} workout={workout}></WorkoutsDetails>
-            ))
-          }
-        </div>
-        <WorkoutForm/>
+    <div className="home">
+      
+      <div className="workouts">
+        
+        {/* EMPTY STATE */}
+        {workouts && workouts.length === 0 && (
+          <div className="empty-state">
+            <h2>💪 No Workouts Yet</h2>
+            <p>
+              Start your fitness journey today.<br />
+              Add your first workout and stay consistent!
+            </p>
+          </div>
+        )}
+
+        {/* WORKOUT LIST */}
+        {workouts && workouts.length > 0 && workouts.map((workout) => (
+          <WorkoutsDetails
+            key={workout._id}
+            workout={workout}
+          />
+        ))}
+
+      </div>
+
+      <WorkoutForm />
 
     </div>
   )
 }
-
-
 
 export default Home

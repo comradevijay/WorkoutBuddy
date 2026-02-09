@@ -140,3 +140,41 @@ form.signup, form.login{
     border-radius: 4px;
 
 }
+
+
+/* Empty state UI */
+.empty-state {
+  margin-top: 80px;
+  padding: 40px;
+  text-align: center;
+  border: 2px dashed #16a34a;
+  border-radius: 12px;
+  background: #f0fdf4;
+  color: #14532d;
+}
+
+.empty-state h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* subtle animation */
+.empty-state {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
