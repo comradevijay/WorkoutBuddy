@@ -10,7 +10,7 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("https://workoutbuddymernfs.netlify.app/api/user/signup", {
+    const response = await fetch("https://workoutbuddy-nt3r.onrender.com/api/user/signup", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ email, password })

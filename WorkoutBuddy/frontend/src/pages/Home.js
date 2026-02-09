@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(()=>{
     const fetchWorkouts = async() =>{
-      const response = await fetch('https://workoutbuddymernfs.netlify.app/api/workouts/',{
+      const response = await fetch('https://workoutbuddy-nt3r.onrender.com/api/workouts/',{
         headers: {
           'Authorization' : `Bearer ${user.token}`
 
